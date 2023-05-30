@@ -2,6 +2,7 @@ import { AxiosRequestConfig } from 'axios'
 import { URL } from 'url'
 import * as nacl from 'tweetnacl'
 import { jsonEncode, sha256 } from '../utils'
+import { EDDSA, EDCSA } from '../cli/dsa'
 
 export interface Authentication {
     /**
@@ -72,15 +73,18 @@ export class NemoApiV2Auth implements Authentication {
     public publicKey = ''
     public privateKey = ''
 
+    private get dsa(): EDDSA {
+        if (this.privateKey == '') return null
+        const privateKeyDecoded = Buffer.from(this.privateKey, 'base64')
+        const ret = EDDSA.fromPrivate(privateKeyDecoded)
+        return ret
+    }
+
     applyToRequest(config: AxiosRequestConfig): AxiosRequestConfig {
         const accessTime: string = new Date().getTime().toString()
         const accessId: string = new URL(config.url as string).pathname
         const data = config.data || {}
-        const privateKeyDecoded = Buffer.from(this.privateKey, 'base64')
-        const messageHash = sha256(`${accessId}:${accessTime}:${jsonEncode(data)}`)
-
-        const { secretKey } = nacl.sign.keyPair.fromSeed(privateKeyDecoded)
-        const signature = Buffer.from(nacl.sign(messageHash, secretKey)).slice(0, 64).toString('base64')
+        const signature = this.dsa.sign(`${accessId}:${accessTime}:${jsonEncode(data)}`).toString('base64')
 
         config.headers['Access-Time'] = accessTime
         config.headers['Access-Signature'] = signature

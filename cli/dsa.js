@@ -51,8 +51,8 @@ class EDDSA {
     constructor(prv, pub) {
         if (prv !== null) {
             this.keyPair = nacl.sign.keyPair.fromSeed(prv)
-            this.prv = Buffer.from(keyPair.secretKey.subarray(0, nacl.sign.seedLength))
-            this.pub = Buffer.from(keyPair.publicKey)
+            this.prv = Buffer.from(this.keyPair.secretKey.subarray(0, nacl.sign.seedLength))
+            this.pub = Buffer.from(this.keyPair.publicKey)
         } else if (pub !== null) {
             this.pub = pub
         } else {
@@ -116,4 +116,6 @@ const dsa = ({ algorithm, action, key, message, signature }) => {
 
 module.exports = {
     dsa,
+    EDDSA,
+    ECDSA
 }
