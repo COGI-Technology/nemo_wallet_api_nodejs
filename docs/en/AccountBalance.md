@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **pendingBalance** | **string** | The total pending balance of the account | [optional] [default to undefined]
 **pendingClaim** | **string** | The total pending claim of the account | [optional] [default to undefined]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](./README.md#documentation-for-models) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to README]](./README.md)
 
 

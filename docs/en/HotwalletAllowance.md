@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **spender** | **string** | The Ethereum address of the service | [optional] [default to undefined]
 **amount** | **string** | The number of tokens | [optional] [default to undefined]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](./README.md#documentation-for-models) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to README]](./README.md)
 
 

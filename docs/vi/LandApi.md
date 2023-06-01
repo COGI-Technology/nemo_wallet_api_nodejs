@@ -1,19 +1,19 @@
 # nemo_api.LandApi
 
-Method | HTTP request | Description
+Phương thức | Yêu cầu HTTP | Mô tả
 ------------- | ------------- | -------------
-[**mint**](LandApi.md#mint) | **POST** /land/mint | Send a transaction to mint an NFT Land and transfer it to an account, executed by the minter. Get UUID of NFT Land if successful
-[**requestMint**](LandApi.md#requestMint) | **POST** /land/request_mint | Send a transaction to mint an NFT Land and transfer it to an account, executed by the user. Get UUID of NFT Land if successful
-[**mints**](LandApi.md#mints) | **POST** /land/mints | Send batch transaction to mint multiple NFT Land, executed by the minter
-[**requestMints**](LandApi.md#requestMints) | **POST** /land/request_mints | Send batch transaction to mint multiple NFT Land, executed by the user
-[**requestCancelbuys**](LandApi.md#requestCancelbuys) | **POST** /land/request_cancelbuys | Send batch request cancel buy
+[**mint**](LandApi.md#mint) | **POST** /land/mint | Đúc NFT Land và chuyển nó cho một tài khoản, được thực hiện bởi Minter. Nhận UUID của NFT Land nếu thành công.
+[**requestMint**](LandApi.md#requestmint) | **POST** /land/request_mint | Đúc NFT Land và chuyển nó cho một tài khoản, được thực hiện bởi người dùng. Nhận UUID của NFT Land nếu thành công.
+[**mints**](LandApi.md#mints) | **POST** /land/mints | Gửi giao dịch để tạo ra nhiều NFT Land, được thực hiện bởi Minter.
+[**requestMints**](LandApi.md#requestmints) | **POST** /land/request_mints | Gửi giao dịch để tạo ra nhiều NFT Land, được thực hiện bởi người dùng.
+[**requestCancelbuys**](LandApi.md#requestcancelbuys) | **POST** /land/request_cancelbuys | Gửi yêu cầu hủy giao dịch mua hàng.
 
 # **mint**
 > Promise<{ response: AxiosResponse; body: string }> mint(recipient, landId, level, landX, landY, metadata, callback)
 
-Mint an NFT.
+Tạo một NFT Land.
 
-### Example
+### Ví dụ
 
 ```typescript
 const NEMOApi = require('nemo-api');
@@ -34,38 +34,38 @@ api.mint(recipient, landId, level, landX, landY, metadata, callback)
          error => console.error(error));
 ```
 
-### Parameters
+### Tham số
 
-Name | Type | Description  | Notes
+Tên | Kiểu dữ liệu | Sự mô tả | Ghi chú
 ------------- | ------------- | ------------- | -------------
- **recipient** | **string**| Account | 
- **landId** | **string**| Land id | 
- **level** | **string**| Land level | 
- **landX** | **string**| Position X | 
- **landY** | **string**| Position Y | 
- **metadata** | **any**| Land Metadata | 
- **callback** | **string**| Callback uri | 
+ **recipient** | **string**| Tài khoản | 
+ **landId** | **string**| Id Land | 
+ **level** | **string**| Cấp độ Land | 
+ **landX** | **string**| Vị trí X | 
+ **landY** | **string**| Vị trí Y | 
+ **metadata** | **any**| Dữ liệu phân loại Land (Metadata) | 
+ **callback** | **string**| URI Callback| 
 
-### Return type
+### Kiểu kết quả trả về
 
 Promise<{ response: AxiosResponse; body: string }>
 
-### Authorization
+### Xác thực
 
-[apiv2](../README.md#apiv2)
+[apiv2](./README.md#apiv2)
 
 ### HTTP request headers
 
-### HTTP response details
+### Chi tiết phản hồi của yêu cầu HTTP
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Quay lại đầu trang]](#) [[Quay lại danh sách API]](./README.md#tài-liệu-về-api-endpoints) [[Quay lại danh sách Model]](./README.md#tài-liệu-về-models) [[Quay lại README]](./README.md)
 
 # **requestMint**
 > Promise<{ response: AxiosResponse; body: string }> requestMint(recipient, landId, level, landX, landY, metadata, callback)
 
-Request mint an NFT.
+Yêu cầu đúc một NFT.
 
-### Example
+### Ví dụ
 
 ```typescript
 const NEMOApi = require('nemo-api');
@@ -86,38 +86,38 @@ api.requestMint(recipient, landId, level, landX, landY, metadata, callback)
          error => console.error(error));
 ```
 
-### Parameters
+### Tham số
 
-Name | Type | Description  | Notes
+Tên | Kiểu dữ liệu | Mô tả  | Ghi chú
 ------------- | ------------- | ------------- | -------------
- **recipient** | **string**| Account | 
- **landId** | **string**| Land id | 
- **level** | **string**| Land level | 
- **landX** | **string**| Position X | 
- **landY** | **string**| Position Y | 
- **metadata** | **any**| Land Metadata | 
- **callback** | **string**| Callback uri | 
+ **recipient** | **string**| Tài khoản | 
+ **landId** | **string**| id Land | 
+ **level** | **string**| Cấp độ Land | 
+ **landX** | **string**| Vị trí X | 
+ **landY** | **string**| Vị trí Y | 
+ **metadata** | **any**| Metadata của Land | 
+ **callback** | **string**| URI gọi lại |
 
-### Return type
+### Kiểu kết quả trả về
 
 Promise<{ response: AxiosResponse; body: string }>
 
-### Authorization
+### Xác thực
 
-[apiv2](../README.md#apiv2)
+[apiv2](./README.md#apiv2)
 
 ### HTTP request headers
 
-### HTTP response details
+### Chi tiết phản hồi của yêu cầu HTTP
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Quay lại đầu trang]](#) [[Quay lại danh sách API]](./README.md#tài-liệu-về-api-endpoints) [[Quay lại danh sách Model]](./README.md#tài-liệu-về-models) [[Quay lại README]](./README.md)
 
 # **mints**
 > Promise<{ response: AxiosResponse; body: Array<any> }> mints(lands)
 
-Mint batch NFT.
+Đúc NFT hàng loạt.
 
-### Example
+### Ví dụ
 
 ```typescript
 const NEMOApi = require('nemo-api');
@@ -147,32 +147,32 @@ api.mints(lands)
          error => console.error(error));
 ```
 
-### Parameters
+### Tham số
 
-Name | Type | Description  | Notes
+Tên | Kiểu dữ liệu | Mô tả | Ghi chú
 ------------- | ------------- | ------------- | -------------
- **lands** | **Array<any>**| List of mint parameters | 
+ **lands** | **Array<any>**| Danh sách các tham số để khởi tạo | 
 
-### Return type
+### Kiểu kết quả trả về
 
 Promise<{ response: AxiosResponse; body: Array<any> }>
 
-### Authorization
+### Xác thực
 
-[apiv2](../README.md#apiv2)
+[apiv2](./README.md#apiv2)
 
 ### HTTP request headers
 
-### HTTP response details
+### Chi tiết phản hồi của yêu cầu HTTP
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Quay lại đầu trang]](#) [[Quay lại danh sách API]](./README.md#tài-liệu-về-api-endpoints) [[Quay lại danh sách Model]](./README.md#tài-liệu-về-models) [[Quay lại README]](./README.md)
 
 # **requestMints**
 > Promise<{ response: AxiosResponse; body: Array<any> }> requestMints(lands)
 
-Mint batch NFT.
+Mint NFT hàng loạt.
 
-### Example
+### Ví dụ
 
 ```typescript
 const NEMOApi = require('nemo-api');
@@ -202,32 +202,32 @@ api.requestMints(lands)
          error => console.error(error));
 ```
 
-### Parameters
+### Tham số
 
-Name | Type | Description  | Notes
+Tên | Kiểu dữ liệu | Mô tả | Ghi chú
 ------------- | ------------- | ------------- | -------------
- **lands** | **Array<any>**| List of mint parameters | 
+ **lands** | **Array<any>**| Danh sách các tham số để khởi tạo | 
 
-### Return type
+### Kiểu kết quả trả về
 
 Promise<{ response: AxiosResponse; body: Array<any> }>
 
-### Authorization
+### Xác thực
 
-[apiv2](../README.md#apiv2)
+[apiv2](./README.md#apiv2)
 
 ### HTTP request headers
 
-### HTTP response details
+### Chi tiết phản hồi của yêu cầu HTTP
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Quay lại đầu trang]](#) [[Quay lại danh sách API]](./README.md#tài-liệu-về-api-endpoints) [[Quay lại danh sách Model]](./README.md#tài-liệu-về-models) [[Quay lại README]](./README.md)
 
 # **requestCancelbuys**
 > Promise<{ response: AxiosResponse; body: Array<any> }> requestCancelbuys(lands)
 
-Request batch cancel buy.
+Yêu cầu hủy lệnh mua NFT.
 
-### Example
+### Ví dụ
 
 ```typescript
 const NEMOApi = require('nemo-api');
@@ -247,22 +247,22 @@ api.requestCancelbuys(lands)
          error => console.error(error));
 ```
 
-### Parameters
+### Tham số
 
-Name | Type | Description  | Notes
+Tên | Kiểu dữ liệu | Mô tả | Ghi chú
 ------------- | ------------- | ------------- | -------------
- **lands** | **Array<any>**| The list of objects includes attributes for both account and cid | 
+ **lands** | **Array<any>**| Danh sách của các đối tượng gồm account và cid | 
 
-### Return type
+### Kiểu kết quả trả về
 
 Promise<{ response: AxiosResponse; body: Array<any> }>
 
-### Authorization
+### Xác thực
 
-[apiv2](../README.md#apiv2)
+[apiv2](./README.md#apiv2)
 
 ### HTTP request headers
 
-### HTTP response details
+### Chi tiết phản hồi của yêu cầu HTTP
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Quay lại đầu trang]](#) [[Quay lại danh sách API]](./README.md#tài-liệu-về-api-endpoints) [[Quay lại danh sách Model]](./README.md#tài-liệu-về-models) [[Quay lại README]](./README.md)

@@ -1,14 +1,14 @@
-# nemo_api.MysteryboxApi
+# nemo_api.NftApi
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**mint**](MysteryboxApi.md#mint) | **POST** /mysterybox/mint | Send a transaction to mint an NFT BOX and transfer it to an account, executed by the minter. Get UUID of NFT if successful
-[**mints**](MysteryboxApi.md#mints) | **POST** /mysterybox/mints | Send batch transaction to mint multiple NFT BOX, executed by the minter
+[**mint**](NftApi.md#mint) | **POST** /nft/mint | Send a transaction to mint an NFT and transfer it to an account, executed by the minter. Get UUID of NFT if successful
+[**requestMint**](NftApi.md#requestMint) | **POST** /nft/request_mint | Send a transaction to mint an NFT and transfer it to an account, executed by the user. Get UUID of NFT if successful
 
 # **mint**
-> Promise<{ response: AxiosResponse; body: string }> mint(boxId, recipient, metadata, callback)
+> Promise<{ response: AxiosResponse; body: string }> mint(recipient, metadata, callback)
 
-Mint an NFT BOX.
+Mint an NFT.
 
 ### Example
 
@@ -18,12 +18,11 @@ const client = new NEMOApi.ApiClient();
 // uncomment the next line to change base path
 // client.basePath = "https://some-other-host"
 
-const api = new NEMOApi.MysteryBoxApi(client);
+const api = new NEMOApi.NFTApi(client);
 const recipient: string = "<A Ethereum address>"
-const boxId: string = "<boxId>"
 const metadata: any = "<land metadata>"
 const callback: string = "<callback url>"
-api.mint(boxId, recipient, metadata, callback)
+api.mint(recipient, metadata, callback)
    .then(value => console.log('API called successfully. Returned data: ', value.body),
          error => console.error(error));
 ```
@@ -32,29 +31,28 @@ api.mint(boxId, recipient, metadata, callback)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **boxId** | **string**| Box ID | 
  **recipient** | **string**| Account | 
  **metadata** | **any**| Metadata object | 
  **callback** | **string**| Callback uri | 
 
 ### Return type
 
-Promise<{ response: AxiosResponse; body: string }>
+Promise<{ response: AxiosResponse; body: string }> 
 
 ### Authorization
 
-[apiv2](../README.md#apiv2)
+[apiv2](./README.md#apiv2)
 
 ### HTTP request headers
 
 ### HTTP response details
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](./README.md)
 
-# **mints**
-> Promise<{ response: AxiosResponse; body: Array<any> }> mints(boxes)
+# **requestMint**
+> Promise<{ response: AxiosResponse; body: string }> requestMint(recipient, metadata, callback)
 
-Mint batch NFT Box.
+Request mint an NFT.
 
 ### Example
 
@@ -64,18 +62,11 @@ const client = new NEMOApi.ApiClient();
 // uncomment the next line to change base path
 // client.basePath = "https://some-other-host"
 
-const api = new NEMOApi.MysteryBoxApi(client);
+const api = new NEMOApi.NFTApi(client);
 const recipient: string = "<A Ethereum address>"
-const boxId: string = "<boxId>"
 const metadata: any = "<land metadata>"
 const callback: string = "<callback url>"
-const boxes = api.buildBatchMintData(
-    [boxId],
-    [recipient],
-    [metadata],
-    [callback]
-)
-api.mints(boxes)
+api.requestMint(recipient, metadata, callback)
    .then(value => console.log('API called successfully. Returned data: ', value.body),
          error => console.error(error));
 ```
@@ -84,18 +75,20 @@ api.mints(boxes)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **boxes** | **Array<any>**| List of mint parameters | 
+ **recipient** | **string**| Account | 
+ **metadata** | **any**| Metadata object | 
+ **callback** | **string**| Callback uri | 
 
 ### Return type
 
-Promise<{ response: AxiosResponse; body: Array<any> }>
+Promise<{ response: AxiosResponse; body: string }> 
 
 ### Authorization
 
-[apiv2](../README.md#apiv2)
+[apiv2](./README.md#apiv2)
 
 ### HTTP request headers
 
 ### HTTP response details
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](./README.md)

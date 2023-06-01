@@ -25,6 +25,6 @@ Name | Type | Description | Notes
 **nemoAddress** | **string** | The Ethereum address of NemoWallet | [optional] [default to undefined]
 **walletAddress** | **Array<string>** | The Ethereum addresses of the MetaMask wallets are linked" | [optional] [default to undefined]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](./README.md#documentation-for-models) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to README]](./README.md)
 
 
