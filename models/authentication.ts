@@ -2,7 +2,7 @@ import { AxiosRequestConfig } from 'axios'
 import { URL } from 'url'
 import * as nacl from 'tweetnacl'
 import { jsonEncode, sha256 } from '../utils'
-import { EDDSA, EDCSA } from '../cli/dsa'
+import { EDDSA } from '../cli/dsa'
 
 export interface Authentication {
     /**
@@ -73,8 +73,7 @@ export class NemoApiV2Auth implements Authentication {
     public publicKey = ''
     public privateKey = ''
 
-    private get dsa(): EDDSA {
-        if (this.privateKey == '') return null
+    private get dsa() {
         const privateKeyDecoded = Buffer.from(this.privateKey, 'base64')
         const ret = EDDSA.fromPrivate(privateKeyDecoded)
         return ret

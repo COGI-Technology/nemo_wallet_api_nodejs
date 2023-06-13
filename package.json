@@ -2,19 +2,20 @@
   "name": "nemo-api",
   "version": "1.0.0",
   "description": "NodeJS client for nemo-api",
-  "main": "dist/api.js",
-  "types": "dist/api.d.ts",
+  "main": "dist/api/index.js",
+  "types": "dist/api/index.d.ts",
   "scripts": {
     "clean": "rm -Rf node_modules",
-    "build": "tsc",
-    "prepare": "npm run build",
+    "build": "tsc --allowJs --checkJs && chmod +x dist/cli/index.js",
+    "prepare": "rm -rf dist && npm run build",
     "format": "prettier --write '*/**/*.{js,ts,tsx}'",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "bin": {
-    "nemoverse-cli": "./cli/index.js"
+    "nemoverse-cli": "dist/cli/index.js"
   },
   "repository": {
+    "directory": "dist",
     "type": "git",
     "url": "git+ssh://git@gitlab.com/nemoverse/nemo_wallet_api_nodejs.git"
   },
@@ -27,9 +28,9 @@
   "author": "NEMO Platform",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/nemoverse/nemo_wallet_api_nodejs/issues"
+    "url": "https://github.com/COGI-Technology/NEMOWallet_SDK_FOR_NODEJS/issues"
   },
-  "homepage": "https://gitlab.com/nemoverse/nemo_wallet_api_nodejs#readme",
+  "homepage": "https://github.com/COGI-Technology/NEMOWallet_SDK_FOR_NODEJS#readme",
   "dependencies": {
     "@types/node": "^8.10.48",
     "axios": "^0.21.1",
@@ -39,9 +40,9 @@
     "typescript": "^3.7.9"
   },
   "devDependencies": {
+    "@types/commander": "^2.12.2",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
-    "@types/commander": "^2.12.2",
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^17.0.0",
@@ -52,5 +53,8 @@
     "prettier": "^2.0.5",
     "rewire": "^3.0.2",
     "ts-node-dev": "^2.0.0"
+  },
+  "directories": {
+    "doc": "docs"
   }
 }

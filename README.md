@@ -6,8 +6,8 @@ This is the main README file for the **nemo-api@1.0.0** Node.js. The project con
 
 The following languages are available in this project:
 
-- [English](./docs/en/README.md)
-- [Việt Nam](./docs/vi/README.md)
+- [English](https://github.com/cogi-technology/nemoapi-node/blob/master/docs/en/README.md)
+- [Việt Nam](https://github.com/cogi-technology/nemoapi-node/blob/master/docs/vi/README.md)
 
 ## Getting Started
 
