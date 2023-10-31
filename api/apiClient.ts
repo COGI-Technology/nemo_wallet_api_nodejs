@@ -68,6 +68,13 @@ export class ApiClient {
                         throw new Error(`Failed request ${config.url} ${rsp.status} ${util.inspect(rsp.data)}`)
                     }
                     let body = rsp.data
+                    if (Array.isArray(body)) {
+                        if (responseType.length > 0) {
+                            body = ObjectSerializer.deserialize(body, responseType)
+                        }
+                        return { response: rsp, body: body }
+                    }
+                    
                     const reponseStatus = body['status'] !== undefined ? body['status'] : -1
                     if (reponseStatus < 0 || (!body['params'] && !body['uuid'])) {
                         throw new Error(`Invalid reponse ${util.inspect(body)}`)

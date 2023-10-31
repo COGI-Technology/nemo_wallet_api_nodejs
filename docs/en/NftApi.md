@@ -92,3 +92,43 @@ Promise<{ response: AxiosResponse; body: string }>
 ### HTTP response details
 
 [[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](./README.md)
+
+# **mints**
+> Promise<{ response: AxiosResponse; body: Array<any> }> mints(nfts)
+
+Mint batch NFT.
+
+### Example
+
+```typescript
+const NEMOApi = require('nemo-api');
+const client = new NEMOApi.ApiClient();
+// uncomment the next line to change base path
+// client.basePath = "https://some-other-host"
+
+const api = new NEMOApi.NFTApi(client);
+const nfts: Array<any> = "<list of nfts>"
+api.mints(nfts)
+   .then(value => console.log('API called successfully. Returned data: ', value.body),
+         error => console.error(error));
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **payload** | **Array<any>**| List of mint parameters | 
+
+### Return type
+
+Promise<{ response: AxiosResponse; body: Array<any> }>
+
+### Authorization
+
+[apiv2](./README.md#apiv2)
+
+### HTTP request headers
+
+### HTTP response details
+
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](./README.md)

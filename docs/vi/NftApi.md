@@ -92,3 +92,43 @@ Promise<{ response: AxiosResponse; body: string }>
 ### Chi tiết phản hồi của yêu cầu HTTP
 
 [[Quay lại đầu trang]](#) [[Quay lại danh sách API]](./README.md#tài-liệu-về-api-endpoints) [[Quay lại danh sách Model]](./README.md#tài-liệu-về-models) [[Quay lại README]](./README.md)
+
+# **mints**
+> Promise<{ response: AxiosResponse; body: Array<any> }> mints(nfts)
+
+Đúc hàng loạt NFT.
+
+### Ví dụ
+
+```typescript
+const NEMOApi = require('nemo-api');
+const client = new NEMOApi.ApiClient();
+// uncomment the next line to change base path
+// client.basePath = "https://some-other-host"
+
+const api = new NEMOApi.MysteryBoxApi(client);
+const nfts: Array<any> = "<list of nfts>"
+api.mints(nfts)
+   .then(value => console.log('API called successfully. Returned data: ', value.body),
+         error => console.error(error));
+```
+
+### Tham số
+
+Tên | Kiểu dữ liệu | Mô tả  | Ghi chú
+------------- | ------------- | ------------- | -------------
+ **payload** | **Array<any>**| Danh sách các tham số của mint | 
+
+### Kiểu kết quả trả về
+
+Promise<{ response: AxiosResponse; body: Array<any> }>
+
+### Xác thực
+
+[apiv2](./README.md#apiv2)
+
+### HTTP request headers
+
+### Chi tiết phản hồi của yêu cầu HTTP
+
+[[Quay lại đầu trang]](#) [[Quay lại danh sách API]](./README.md#tài-liệu-về-api-endpoints) [[Quay lại danh sách Model]](./README.md#tài-liệu-về-models) [[Quay lại README]](./README.md)
