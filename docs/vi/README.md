@@ -27,7 +27,7 @@ Vui lòng làm theo hướng dẫn [cài đặt](#cài-đặt) và thực thi m�
 Tạo cặp khóa
 ```sh
 # Sử dụng CLI nemoversdk để tạo ra một cặp khóa. Kết quả trả về lần lượt là một khóa riêng tư và một khóa công khai
-nemoverse-cli dsa -a generate
+npx nemoverse-cli dsa -a generate
 # oB13FXaa1BiEiDaUGvuj/blJwj6SRl7JjkE/ApeQf08= auVgK8gSvFOgF5zWmQ5wWhFKImyl5/ka59dcRZtzcDA=
 ```
 
